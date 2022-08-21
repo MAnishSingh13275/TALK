@@ -10,7 +10,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("Please Enter all the Fields");
   }
 
-  const userExist = await User.findOne({ email });
+  const userExist = await User.findOne({ email, name });
   if (userExist) {
     res.status(400);
     throw new Error("User already exist");
